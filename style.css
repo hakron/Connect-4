@@ -1,0 +1,113 @@
+#layer {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    height:100%;
+    z-index: 54;
+    display: none;
+}
+
+.welcome {
+    width: 450px;
+    height: 60px;
+    font-family: 'Lobster';
+    font-size: 50px;
+    color: rgb(104, 123, 244);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.board {
+    /*height: 438px;
+    width: 527px;*/
+    background: rgb(104, 123, 244);
+    border-radius: 10%;
+    display: inline-flex;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.col {
+    padding: 5px;
+}
+
+.slot {
+    height: 65px;
+    width: 65px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    z-index: 2;
+    margin: 11px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.one {
+    /*color: rgb(255, 135, 0);*/
+    background: rgb(255, 135, 0);
+}
+
+.two {
+    /*color: rgb(110, 41, 236);*/
+    background: rgb(110, 41, 236);
+}
+
+#turn {
+    text-align: center;
+    width: 125px;
+    color: rgb(3, 0, 0);
+    font-size: 20px;
+    font-family: 'Lobster';
+    border-radius: 35px;
+    position: absolute;
+    top: 35%;
+    left: 0%;
+    transform: translate(50%, -50%);
+    margin: 2px;
+    padding: 2px;
+}
+
+.btn {
+    font-size: 20px;
+    font-family: 'Lobster';
+    height: 55px;
+    width: 120px;
+    background: white;
+    border: 2px solid rgb(73, 74, 79);
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(50%, -50%);
+    margin: 0px;
+    cursor: pointer;
+    border-radius: 30px;
+    z-index: 55;
+    display: none;
+    outline: none;
+}
+
+.winner {
+    width: 400px;
+    height: 100px;
+    font-family: 'Lobster';
+    font-size: 40px;
+    color: rgb(249, 250, 246);
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 55;
+    display: none;
+    margin: 5px;
+    padding: 5px;
+    border: 6px dotted rgb(104, 123, 244);
+    border-radius: 20%;
+}
