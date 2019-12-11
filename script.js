@@ -2,40 +2,39 @@
 var playerTurn = "one";
 var btn = $(".btn");
 var turn = $("#turn");
-var slots = $('.slot');
-var winnertext = $(".winner");
+var slots = $(".slot");
+var winnerText = $(".winner");
 var layer = $("#layer");
-$(document).ready(function Token(obj, column) {
-    welcomeAnim();
-    btn.click(function() {
-        //trigger the cleanboardfunction in a btn
-        resetBoard();
-    });
+$(document).ready(function Token() {
+    //trigger the resetBoard function in a btn
+    btn.click(() => resetBoard());
     slots.click(function(e) {
-        //fuction that allows to drop the toke with anim
+        //function that allows to drop the toke with anim
         var column = $(e.target).closest(".col");
         var slots = column.find(".slot");
         for (var i = 5; i >= 0; i--) {
             if (!slots.eq(i).hasClass("one") && !slots.eq(i).hasClass("two")) {
-
                 slots.eq(i).addClass(playerTurn);
                 //create a bounce effect and make the board bigger when you drop the token
-                slots.eq(i).effect("bounce", {
-                    times: 3
-                }, "slow");
+                slots.eq(i).effect(
+                    "bounce",
+                    {
+                        times: 3
+                    },
+                    "slow"
+                );
                 break;
             }
         }
         checkForWin(column);
         if (playerTurn == "one") {
-            playerTurn = "two"
+            playerTurn = "two";
             indicateTurn();
         } else {
-            playerTurn = "one"
+            playerTurn = "one";
             indicateTurn();
         }
     });
-
 });
 
 function checkForWin(column) {
@@ -56,11 +55,9 @@ function checkWinnerVertical(column) {
                 winnerAnimation();
                 break;
             }
-
         } else {
             count = 0;
         }
-
     }
 }
 
@@ -74,7 +71,7 @@ function checkWinnerHorizontal() {
         row = $(".row" + i);
         for (var j = 0; j < row.length; j++) {
             if (row.eq(j).hasClass(playerTurn)) {
-                count++
+                count++;
 
                 if (count >= 4) {
                     winnerAnimation();
@@ -82,17 +79,15 @@ function checkWinnerHorizontal() {
                 }
             } else {
                 count = 0;
-
             }
-
         }
     }
 }
 
 function checkWinnerDiagonal() {
-    //checl diagonalWin
+    //check diagonalWin
     var diagonalWin = [
-        // all possible diagonalswins up-down
+        // all possible diagonal wins up-down
         [0, 7, 14, 21],
         [1, 8, 15, 22],
         [2, 9, 16, 23],
@@ -117,7 +112,6 @@ function checkWinnerDiagonal() {
         [12, 19, 26, 33],
         [19, 26, 33, 40],
         [18, 25, 32, 39]
-
     ];
 
     for (var i = 0; i < diagonalWin.length; i++) {
@@ -136,60 +130,39 @@ function checkWinnerDiagonal() {
             break;
         }
     }
-    // console.log(check1, check2, check3, check4);
 }
 
 function resetBoard() {
     //reset the board and start again
-    winnertext.effect("transfer");
-    location.reload()
-};
+    winnerText.effect("transfer");
+    location.reload();
+}
 
 function winnerAnimation() {
     // popup a text if there is a winner with anim and a text
     btn.show();
     layer.show();
-    winnertext.append("<br>" + "Player" + " " + playerTurn + "</br>");
-    winnertext.addClass(playerTurn);
-    winnertext.show();
-    winnertext.animate({
-        top: '50%',
-        height: '100px',
-        width: '400px'
-    }, 1000);
+    winnerText.append("<br>" + "Player" + " " + playerTurn + "</br>");
+    winnerText.addClass(playerTurn);
+    winnerText.show();
+    winnerText.animate(
+        {
+            top: "50%",
+            height: "100px",
+            width: "400px"
+        },
+        1000
+    );
     setInterval(function() {
         //shake without a limit till you press the btn
-        winnertext.effect('shake',{distance:30}, 1000)
+        winnerText.effect("shake", { distance: 30 }, 1000);
     }, 1500);
-};
+}
 
 function indicateTurn() {
     //indicate the turn of the current player and changing color
-    fontZoom();
-    turn.html("It's your turn Player" + " " + playerTurn)
-            .css({
-                color: playerTurn == "one" ? "rgb(255, 135, 0)" : "rgb(110, 41, 236)"
-
-            })
-    }
-function fontZoom() {
-    // change between differents fonts to create a zoom effect.
-    turn.stop().animate({
-        fontSize: turn.css('fontSize') == '20px' ? '22px' : '20px'
-    }, 500, fontZoom);
-
-}
-
-function welcomeAnim() {
-    //anim of the welcome text connect4
-    var title = $(".welcome");
-    title.animate({
-        color: "#ff8700"
-    }, 1000, function() {
-        title.animate({
-            color: "#6e29ec"
-        }, 1000, function() {
-            welcomeAnim();
-        });
+    turn.html("It's your turn Player" + " " + playerTurn).css({
+        color: playerTurn == "one" ? "rgb(255, 135, 0)" : "rgb(110, 41, 236)"
     });
 }
+

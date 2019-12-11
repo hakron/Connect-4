@@ -1,3 +1,8 @@
+
+html {
+    font-family: 'Lobster';
+    background-color: #303136;
+}
 #layer {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     top: 0;
@@ -13,13 +18,17 @@
 .welcome {
     width: 450px;
     height: 60px;
-    font-family: 'Lobster';
     font-size: 50px;
-    color: rgb(104, 123, 244);
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    animation: color-change 2s infinite ease-in-out;
+}
+@keyframes color-change {
+    0% { color: #ff8700; }
+    50% { color: #6e29ec; }
+    100% { color: #ff8700; }
 }
 
 .board {
@@ -64,8 +73,7 @@
     text-align: center;
     width: 125px;
     color: rgb(3, 0, 0);
-    font-size: 20px;
-    font-family: 'Lobster';
+    
     border-radius: 35px;
     position: absolute;
     top: 35%;
@@ -73,13 +81,18 @@
     transform: translate(50%, -50%);
     margin: 2px;
     padding: 2px;
+    animation: font-size-change 2s infinite ease-in-out;
+}
+@keyframes font-size-change {
+    0% { font-size: 20px; }
+    50% { font-size: 22px; }
+    100% { font-size: 20px; }
 }
 
 .btn {
     font-size: 20px;
     font-family: 'Lobster';
     height: 55px;
-    width: 120px;
     background: white;
     border: 2px solid rgb(73, 74, 79);
     position: absolute;
@@ -97,7 +110,6 @@
 .winner {
     width: 400px;
     height: 100px;
-    font-family: 'Lobster';
     font-size: 40px;
     color: rgb(249, 250, 246);
     text-align: center;
